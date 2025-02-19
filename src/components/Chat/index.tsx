@@ -89,6 +89,7 @@ export default function ChatReclutadores() {
     try {
       const response = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
+        cache: 'no-cache',
         headers: {
           "Content-Type": "application/json",
           "x-api-key": API_KEY,
