@@ -89,20 +89,13 @@ export default function ChatReclutadores() {
     try {
       const response = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
-        cache: 'no-cache',
         headers: {
           "Content-Type": "application/json",
-          "x-api-key": API_KEY,
         },
         body: JSON.stringify({ message: input, prevMessages: messages }),
       });
 
       const data = await response.json();
-
-      if (data.error) {
-        console.error(data.error);
-        return;
-      }
 
       const assistantMessage = { role: "assistant", text: data.reply };
       setMessages((prev) => [...prev, assistantMessage]);
