@@ -1,36 +1,111 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Chat Interactivo con IA
 
-## Getting Started
+## Descripción
 
-First, run the development server:
+Esta aplicación es un chat interactivo que permite a los usuarios mantener conversaciones con una IA. Incluye una interfaz moderna y amigable con características como indicadores de escritura, avatares personalizados y almacenamiento de conversaciones.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Características Principales
+
+- 🔐 Modal de bienvenida con validación de datos
+- 👤 Avatares personalizados basados en el nombre del usuario
+- ⌨️ Indicador de "escribiendo..." durante las respuestas
+- 💬 Diseño de burbujas de chat estilo WhatsApp
+- 📱 Interfaz completamente responsiva
+- 💾 Almacenamiento de conversaciones en Supabase
+- ✨ Validaciones en tiempo real
+- ⚡ Envío de mensajes con Enter
+
+## Tecnologías Utilizadas
+
+- **Next.js** (v14.0.0) - Framework de React
+- **React** (v18.2.0) - Biblioteca de UI
+- **TypeScript** (v5.0.0) - Lenguaje de programación
+- **Tailwind CSS** (v3.3.0) - Framework de estilos
+- **Supabase** (v2.39.0) - Base de datos en tiempo real
+- **Shadcn/ui** (v1.0.0) - Componentes de UI
+- **Radix UI** (v1.0.0) - Primitivos de UI accesibles
+
+## Requisitos Previos
+
+- Node.js (v18 o superior)
+- npm o yarn
+- Cuenta en Supabase
+
+## Instalación
+
+1. **Clonar el repositorio**
+
+   git clone https://github.com/piperiver/chat-ia-me
+
+2. **Instalar dependencias**
+
+   ```bash
+   npm install
+   # o
+   yarn install
+   ```
+
+3. **Configurar variables de entorno**
+
+   Crea un archivo `.env.local` en la raíz del proyecto:
+
+   ```env
+   NEXT_PUBLIC_SUPABASE_URL=tu_url_de_supabase
+   NEXT_PUBLIC_SUPABASE_ANON_KEY=tu_anon_key_de_supabase
+   ```
+
+4. **Iniciar el servidor de desarrollo**
+
+   ```bash
+   npm run dev
+   # o
+   yarn dev
+   ```
+
+La aplicación estará disponible en `http://localhost:3000`
+
+## Estructura del Proyecto
+
+```
+src/
+├── app/
+│   └── page.tsx
+├── components/
+│   ├── Chat/
+│   │   └── index.tsx
+│   └── ui/
+│       ├── button.tsx
+│       ├── input.tsx
+│       └── dialog.tsx
+├── lib/
+│   └── supabase.ts
+└── assets/
+    └── perfil.jpeg
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Despliegue
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+La aplicación está optimizada para ser desplegada en Vercel. Sigue estos pasos:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Sube tu código a GitHub
+2. Conéctalo con Vercel
+3. Configura las variables de entorno en Vercel
+4. ¡Listo! Tu aplicación estará en línea
 
-## Learn More
+## Contribución
 
-To learn more about Next.js, take a look at the following resources:
+Las contribuciones son bienvenidas. Por favor, abre un issue primero para discutir los cambios que te gustaría realizar.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Licencia
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+MIT
 
-## Deploy on Vercel
+## Autor
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Felipe Rivera
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Agradecimientos
+
+- Shadcn/ui por los componentes base
+- Vercel por el hosting
+- Supabase por la base de datos
