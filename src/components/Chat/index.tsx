@@ -86,7 +86,6 @@ export default function ChatReclutadores() {
     setMessages((prev) => [...prev, userMessage]);
     setInput("");
     setIsLoading(true);
-
     try {
       const response = await fetch(API_URL, {
         method: "POST",
@@ -98,6 +97,12 @@ export default function ChatReclutadores() {
       });
 
       const data = await response.json();
+
+      if (data.error) {
+        console.error(data.error);
+        return;
+      }
+
       const assistantMessage = { role: "assistant", text: data.reply };
       setMessages((prev) => [...prev, assistantMessage]);
       await saveChat([...messages, userMessage, assistantMessage]);
