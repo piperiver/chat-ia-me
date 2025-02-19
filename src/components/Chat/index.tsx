@@ -91,7 +91,6 @@ export default function ChatReclutadores() {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          'Origin': window.location.origin,
           "x-api-key": API_KEY,
         },
         body: JSON.stringify({ message: input, prevMessages: messages }),
