@@ -17,6 +17,8 @@ interface Message {
     text: string;
 }
 
+const UrlBase = process.env.NEXT_PUBLIC_API!
+
 export default function ChatReclutadores() {
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
@@ -88,7 +90,7 @@ export default function ChatReclutadores() {
         setIsLoading(true);
 
         try {
-            const response = await fetch('http://localhost:5001/api/chat', {
+            const response = await fetch(UrlBase, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ message: input, prevMessages: messages })
