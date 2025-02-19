@@ -12,7 +12,8 @@ interface Message {
   text: string;
 }
 
-const UrlBase = process.env.NEXT_PUBLIC_API!;
+const API_URL = process.env.NEXT_PUBLIC_API || "";
+const API_KEY = process.env.NEXT_PUBLIC_API_KEY || "";
 
 export default function ChatReclutadores() {
   const [messages, setMessages] = useState<Message[]>([]);
@@ -87,9 +88,12 @@ export default function ChatReclutadores() {
     setIsLoading(true);
 
     try {
-      const response = await fetch(UrlBase, {
+      const response = await fetch(API_URL, {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          "x-api-key": API_KEY,
+        },
         body: JSON.stringify({ message: input, prevMessages: messages }),
       });
 
